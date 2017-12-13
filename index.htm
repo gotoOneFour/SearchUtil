@@ -25,6 +25,10 @@
             text-align: center;
         }
         
+        .input{
+            width: 100px;
+        }
+        
     </style>
     <table class="table" id="table" border=1>
     </table>
@@ -69,7 +73,7 @@
             if(rawNum==0)rawNum=1
             for(var i=0;i<rawNum;i++){
                 if(i==0)$('#table').append('<tr id=' + val["name"] + i + '><td class="title" rowspan=' + rawNum + '>' + val["name"] + '</br>' +
-                                           ' <input type="text"  id="input' + val["name"] + '"> '+
+                                           ' <input type="text" class="input" onkeydown="if(window.event.keyCode==13)onClickAdd(\'' + val["name"] + '\')" id="input' + val["name"] + '"> '+
                                            ' <button name="add' + val["name"] + '" onClick="onClickAdd(\'' + val["name"] + '\')">追加</button>'+
                                            ' <button name="del' + val["name"] + '" onClick="onClickDel(\'' + val["name"] + '\')">削除</button>' + '</td></tr>');
                 else $('#table').append('<tr id=' + val["name"] + i + '></tr>');
