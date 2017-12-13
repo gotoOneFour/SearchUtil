@@ -80,7 +80,10 @@
             }
             
             for(var i=0,l=rawNum*maxColNum;i<l;i++){
-                if(val["data"][i]) $('#' + val["name"] + Math.floor(i/maxColNum)).append('<td><a href="https://www.pixiv.net/search.php?word=' + val["data"][i] + '" target="_blank">' + val["data"][i] + '</a></td>')
+                if(val["data"][i]){
+                    var url = "https://www.pixiv.net/search.php?word=" + encodeURIComponent(val["data"][i])
+                    $('#' + val["name"] + Math.floor(i/maxColNum)).append('<td><a href="' + url + '" target="_blank">' + val["data"][i] + '</a></td>')
+                }
                 else $('#' + val["name"] + Math.floor(i/maxColNum)).append('<td></td>')
             }
             
